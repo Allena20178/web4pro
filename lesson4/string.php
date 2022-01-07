@@ -8,4 +8,11 @@ echo lcfirst(strtoupper($a));
 
 //2.
 $b = 'hello world';
-echo strrev($b);
+function mb_strrev($str) {
+    $strrev = "";
+    for($i = mb_strlen($str); $i>=0; $i--){
+        $strrev .= mb_substr($str, $i,1);
+    }
+    return $strrev;
+}
+echo mb_strrev($b);
