@@ -15,12 +15,29 @@
 //выводит
 //26.8
 //30.5
-$dollars = (26.80);
-$euro = (30.50);
-function currency_exchange()
+//$dollars = (26.80);
+//$euro = (30.50);
+//function currency_exchange($euro, $dollars)
+//{
+////    $line = fgets($handle);
+//    $currency_dollars += $line * $dollars;
+//    $currency_euro += $line * $euro;
+//}
+//var_dump (currency_exchange);
+
+
+/**
+ * @param $num
+ * @return float[]|int[]
+ */
+$func = function currency_exchange($num)
 {
-    $line = fgets($handle);
-    $currency_dollars += $line * $dollars;
-    $currency_euro += $line * $euro;
-}
-var_dump (currency_exchange);
+    $dollars = 26.80;
+    $euro = 30.50;
+    $exchange1 = $num * $dollars;
+    $exchange2 = $num * $euro;
+    // echo("$exchange1 \n");
+    // echo($exchange2);
+    return [$exchange1, $exchange2];
+};
+print_r(array_map($func, currency_exchange(1)));
