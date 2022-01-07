@@ -6,6 +6,17 @@
 //$file = fclose($file);
 
 
-$array = range(1,100);
-file_put_contents("text.txt", print_r($array, true), FILE_APPEND);
-$new = file("text.txt");
+//$array = range(1,100);
+//file_put_contents("text.txt", print_r($array, true), FILE_APPEND);
+//$new = file("text.txt");
+
+function array_to_file($arr){
+    $file = fopen('text.txt' , 'x+');
+    foreach ($arr as $value) {
+        fwrite($file, $value);
+    }
+    fclose($file);
+}
+
+$arr = range(1,100);
+array_to_file($arr);
