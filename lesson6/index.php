@@ -83,9 +83,9 @@
 
 
 <?php
-setcookie("name", $value, time()+3600);
-setcookie("email", $value, time()+3600);
-setcookie("message", $value, time()+3600);
+setcookie("name", "", time()+3600);
+setcookie("email", "", time()+3600);
+setcookie("message", "", time()+3600);
 
 //if ($_POST) {
 //    echo '<pre>';
