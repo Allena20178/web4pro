@@ -71,14 +71,14 @@
 
     $data = json_decode($_COOKIE['submissions'], true);
 
-    if($data[10] != null) {
+    if($data[10] == null) {
         $old_index = json_decode($_COOKIE['old_submission_index'], true);
 
         if ($old_index == null || $old_index == 9) {
             $old_index = 0;
 
         } else {
-            $old_index = $old_index + 1;
+            $old_index += 1;
 
             setcookie('old_submission_index', json_encode($old_index), time()+3600);
         }
