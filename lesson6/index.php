@@ -8,3 +8,33 @@
 //
 //2. Продолжение задачи 1. Если записей в $_COOKIE['submissions'] больше 10, перезаписывать старые отправки."
 
+$NameErr = $ageErr = "";
+$ame = $Email = $age = "";
+$lastName = test_input($_POST["lastName"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["firstName"])) {
+        $firstNameErr = "First name is required";
+    } else {
+        $firstName = ($_POST["firstName"]);
+    }
+
+    if (empty($_POST["age"])) {
+        $ageErr = "Age is required";
+    } else {
+        $age = test_input($_POST["age"]);
+    }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+echo "<h2>Приятно познакомиться:</h2>";
+echo $firstName;
+echo "<br>";
+echo $lastName;
+echo "<br>";
+echo $age;
