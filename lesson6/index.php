@@ -53,16 +53,47 @@
 
         <button type="submit" name='click' class="btn btn-primary">Send</button>
 
-        <script>
-            function addNewRow(val1, val2, val3){
-                const tbl = document.getElementById('Table');
-                const tblValue = tbl.innerHTML;
-                tbl.innerHTML = tblValue + '<td><td>'+val1+'</td><td>'+val2+'</td></td>'+val3+'</td></tr>';
-            }
-        </script>
+<!--        <script>-->
+<!--            function addNewRow(val1, val2, val3){-->
+<!--                const tbl = document.getElementById('Table');-->
+<!--                const tblValue = tbl.innerHTML;-->
+<!--                tbl.innerHTML = tblValue + '<td><td>'+val1+'</td><td>'+val2+'</td></td>'+val3+'</td></tr>';-->
+<!--            }-->
+<!--        </script>-->
 
     </form>
     <?php
+    $new_values = array(
+        'email' => $_POST["email"],
+        'name' => $_POST["name"],
+        'message' => $_POST["message"]
+    );
+
+    $data = json_decode($_COOKIE['submissions'], true);
+
+    if($data[10] != null) {
+        $old_index = json_decode($_COOKIE['old_submission_index'], true);
+
+        if ($old_index == null || $old_index == 9) {
+            $old_index = 0;
+
+        } else {
+            $old_index = $old_index + 1;
+
+            setcookie('old_submission_index', json_encode($old_index), time()+3600);
+        }
+
+        $data[$old_index] = $new_values;
+
+        $values = $data;
+    } else {
+
+        $values = array_push($data, $new_values);
+    }
+
+    setcookie('submissions', json_encode($values), time()+3600);
+
+
     $html="<table>";
     $html.="<tr>";
     $html.="<td>";
@@ -83,9 +114,9 @@
 
 
 <?php
-setcookie("name", "", time()+3600);
-setcookie("email", "", time()+3600);
-setcookie("message", "", time()+3600);
+//setcookie("name", "", time()+3600);
+//setcookie("email", "", time()+3600);
+//setcookie("message", "", time()+3600);
 
 //if ($_POST) {
 //    echo '<pre>';
