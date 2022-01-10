@@ -103,19 +103,22 @@
 
     setcookie('submissions', json_encode($values), time()+3600);
     $data = json_decode($_COOKIE['submissions'], true);
+
 //    var_dump($data);
 
-    if (isset($_COOKIE['submissions'])) {
-        echo 'yes';
-    }else{
-        echo 'no';
-    }
+//    if (isset($_COOKIE['submissions'])) {
+//        echo 'yes';
+//    }else{
+//        echo 'no';
+//    }
     ?>
 
     <?php if($data): ?>
         <table>
-            <?php foreach($data as $submission): ?>
-                <li><?=$submission?></li>
+            <?php foreach($data as $submission):?>
+                <td><?php echo $submission['name']; ?></td>
+                <td><?php echo $submission['email']; ?></td>
+                <td><?php echo $submission['message']; ?></td>
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
