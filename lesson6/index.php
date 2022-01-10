@@ -86,42 +86,22 @@
     }
 
     setcookie('submissions', json_encode($values), time()+3600);
+    $data = json_decode($_COOKIE['submissions'], true);
 
-    $host= "localhost";
-    $usernname= "root";
-    $password= "root";
-    $database= "test";
-    $dbconnect = mysqli_connect($host,$usernname, $password) or die("cannot connect");
-    mysqli_select_db($dbconnect, $database);
-
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-    echo ($name);
-    echo ($email);
-    echo ($message);
-    $sql = mysqli_query($dbconnect,"INSERT INTO 'mytable' ('name', 'email', 'message') VALUES ('$name', '$email', '$message')");
-    if ($sql){
-        echo "ok";
-    }
-    else {
-        echo "no";
-    }
-
-//    $html="<table>";
-//    $html.="<tr>";
-//    $html.="<td>";
-//    $html.=$_POST['name'];
-//    $html.="</td>";
-//    $html.="<td>";
-//    $html.=$_POST['email'];
-//    $html.="</td>";
-//    $html.="<td>";
-//    $html.=$_POST['message'];
-//    $html.="</td>";
-//    $html.="</tr>";
-//    $html.="</table>";
-//    echo $html;
+    $html="<table>";
+    $html.="<tr>";
+    $html.="<td>";
+    $html.=$_POST['name'];
+    $html.="</td>";
+    $html.="<td>";
+    $html.=$_POST['email'];
+    $html.="</td>";
+    $html.="<td>";
+    $html.=$_POST['message'];
+    $html.="</td>";
+    $html.="</tr>";
+    $html.="</table>";
+    echo $html;
     ?>
     </body>
     </html>
