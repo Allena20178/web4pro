@@ -85,8 +85,6 @@
         $values = array_push($data, $new_values);
     }
 
-    setcookie('submissions', json_encode($values), time()+3600);
-    $data = json_decode($_COOKIE['submissions'], true);
 
     $html="<table>";
     $html.="<tr>";
