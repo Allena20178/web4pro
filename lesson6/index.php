@@ -9,33 +9,7 @@
 //2. Продолжение задачи 1. Если записей в $_COOKIE['submissions'] больше 10, перезаписывать старые отправки."
 
 
-//$userName = $userEmail = $userMessage = "";
-//$errorMsg = "";
-//if (isset($_POST['click'])) {
-//    setcookie('name', 'value', 0,'/');
-//    header('Location: http://localhost');
-//    exit;
-//    print("Name: " . $_POST['name']);
-//    print("<br>Email: " . $_POST['email']);
-//    print("<br>Сообщение: " . $_POST['message']);
-//}
 ?>
-<!--//    $html="<table>";-->
-<!--    //    $html.="<tr>";-->
-<!--        //    $html.="<td>";-->
-<!--            //    $html.=$_POST['name'];-->
-<!--            //    $html.="</td>";-->
-<!--        //    $html.="<td>";-->
-<!--            //    $html.=$_POST['email'];-->
-<!--            //    $html.="</td>";-->
-<!--        //    $html.="<td>";-->
-<!--            //    $html.=$_POST['message'];-->
-<!--            //    $html.="</td>";-->
-<!--        //    $html.="</tr>";-->
-<!--    //    $html.="</table>";-->
-<!--//    echo $html;+6-->
-
-
 
     <html lang="en">
     <head>
@@ -106,11 +80,6 @@
 
 //    var_dump($data);
 
-//    if (isset($_COOKIE['submissions'])) {
-//        echo 'yes';
-//    }else{
-//        echo 'no';
-//    }
     ?>
 
     <?php if($data): ?>
