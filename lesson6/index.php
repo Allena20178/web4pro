@@ -20,6 +20,22 @@
 //    print("<br>Сообщение: " . $_POST['message']);
 //}
 ?>
+<!--//    $html="<table>";-->
+<!--    //    $html.="<tr>";-->
+<!--        //    $html.="<td>";-->
+<!--            //    $html.=$_POST['name'];-->
+<!--            //    $html.="</td>";-->
+<!--        //    $html.="<td>";-->
+<!--            //    $html.=$_POST['email'];-->
+<!--            //    $html.="</td>";-->
+<!--        //    $html.="<td>";-->
+<!--            //    $html.=$_POST['message'];-->
+<!--            //    $html.="</td>";-->
+<!--        //    $html.="</tr>";-->
+<!--    //    $html.="</table>";-->
+<!--//    echo $html;+6-->
+
+
 
     <html lang="en">
     <head>
@@ -94,23 +110,16 @@
     }else{
         echo 'no';
     }
-
-
-    $html="<table>";
-    $html.="<tr>";
-    $html.="<td>";
-    $html.=$_POST['name'];
-    $html.="</td>";
-    $html.="<td>";
-    $html.=$_POST['email'];
-    $html.="</td>";
-    $html.="<td>";
-    $html.=$_POST['message'];
-    $html.="</td>";
-    $html.="</tr>";
-    $html.="</table>";
-    echo $html;
     ?>
+
+    <?php if($data): ?>
+        <table>
+            <?php foreach($data as $submission): ?>
+                <li><?=$submission?></li>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
+
     </body>
     </html>
 
