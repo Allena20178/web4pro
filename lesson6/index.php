@@ -89,6 +89,13 @@
     $data = json_decode($_COOKIE['submissions'], true);
     var_dump($data);
 
+    if (isset($_COOKIE['submissions'])) {
+        echo 'yes';
+    }else{
+        echo 'no';
+    }
+
+
     $html="<table>";
     $html.="<tr>";
     $html.="<td>";
