@@ -56,6 +56,37 @@
 
     </form>
     <?php
+
+    $new_values = array(
+        'email' => $_POST["email"],
+        'name' => $_POST["name"],
+        'message' => $_POST["message"]
+    );
+
+    $data = json_decode($_COOKIE['submissions'], true);
+
+    if($data[10] == null) {
+        $old_index = json_decode($_COOKIE['old_submission_index'], true);
+
+        if ($old_index == null || $old_index == 9) {
+            $old_index = 0;
+
+        } else {
+            $old_index += 1;
+
+            setcookie('old_submission_index', json_encode($old_index), time()+3600);
+        }
+
+        $data[$old_index] = $new_values;
+
+        $values = $data;
+    } else {
+
+        $values = array_push($data, $new_values);
+    }
+
+    setcookie('submissions', json_encode($values), time()+3600);
+
     $host= "localhost";
     $usernname= "root";
     $password= "root";
@@ -66,40 +97,16 @@
     $name = $_POST["name"];
     $email = $_POST["email"];
     $message = $_POST["message"];
+    echo ($name);
+    echo ($email);
+    echo ($message);
     $sql = mysqli_query($dbconnect,"INSERT INTO 'mytable' ('name', 'email', 'message') VALUES ('$name', '$email', '$message')");
-
-
-
-//    $new_values = array(
-//        'email' => $_POST["email"],
-//        'name' => $_POST["name"],
-//        'message' => $_POST["message"]
-//    );
-
-//    $data = json_decode($_COOKIE['submissions'], true);
-//
-//    if($data[10] == null) {
-//        $old_index = json_decode($_COOKIE['old_submission_index'], true);
-//
-//        if ($old_index == null || $old_index == 9) {
-//            $old_index = 0;
-//
-//        } else {
-//            $old_index += 1;
-//
-//            setcookie('old_submission_index', json_encode($old_index), time()+3600);
-//        }
-//
-//        $data[$old_index] = $new_values;
-//
-//        $values = $data;
-//    } else {
-//
-//        $values = array_push($data, $new_values);
-//    }
-//
-//    setcookie('submissions', json_encode($values), time()+3600);
-
+    if ($sql){
+        echo "ok";
+    }
+    else {
+        echo "no";
+    }
 
 //    $html="<table>";
 //    $html.="<tr>";
