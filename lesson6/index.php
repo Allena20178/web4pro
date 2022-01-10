@@ -58,8 +58,8 @@
     <?php
 
     $new_values = array(
-        'email' => $_POST["email"],
         'name' => $_POST["name"],
+        'email' => $_POST["email"],
         'message' => $_POST["message"]
     );
 
@@ -85,6 +85,9 @@
         $values = array_push($data, $new_values);
     }
 
+    setcookie('submissions', json_encode($values), time()+3600);
+    $data = json_decode($_COOKIE['submissions'], true);
+    var_dump($data);
 
     $html="<table>";
     $html.="<tr>";
