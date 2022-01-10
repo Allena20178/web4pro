@@ -66,7 +66,10 @@
     $name = $_POST["name"];
     $email = $_POST["email"];
     $message = $_POST["message"];
-    $sql = "INSERT INTO 'mytable' ('name', 'email', 'message') VALUES (':name', ':email', ':message')";
+    $sql = mysqli_query($dbconnect,"INSERT INTO 'mytable' ('name', 'email', 'message') VALUES ('$name', '$email', '$message')");
+
+
+
 //    $new_values = array(
 //        'email' => $_POST["email"],
 //        'name' => $_POST["name"],
@@ -98,20 +101,20 @@
 //    setcookie('submissions', json_encode($values), time()+3600);
 
 
-    $html="<table>";
-    $html.="<tr>";
-    $html.="<td>";
-    $html.=$_POST['name'];
-    $html.="</td>";
-    $html.="<td>";
-    $html.=$_POST['email'];
-    $html.="</td>";
-    $html.="<td>";
-    $html.=$_POST['message'];
-    $html.="</td>";
-    $html.="</tr>";
-    $html.="</table>";
-    echo $html;
+//    $html="<table>";
+//    $html.="<tr>";
+//    $html.="<td>";
+//    $html.=$_POST['name'];
+//    $html.="</td>";
+//    $html.="<td>";
+//    $html.=$_POST['email'];
+//    $html.="</td>";
+//    $html.="<td>";
+//    $html.=$_POST['message'];
+//    $html.="</td>";
+//    $html.="</tr>";
+//    $html.="</table>";
+//    echo $html;
     ?>
     </body>
     </html>
