@@ -87,7 +87,7 @@
 
     setcookie('submissions', json_encode($values), time()+3600);
     $data = json_decode($_COOKIE['submissions'], true);
-    var_dump($data);
+//    var_dump($data);
 
     if (isset($_COOKIE['submissions'])) {
         echo 'yes';
