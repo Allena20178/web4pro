@@ -49,40 +49,35 @@
     <?php
 
     $new_values = array(
-        'name' => $_POST["name"],
         'email' => $_POST["email"],
+        'name' => $_POST["name"],
         'message' => $_POST["message"]
     );
 
-    $data = json_decode($_COOKIE['submissions'], true);
-        print_r($data);
-    if($data[10] == null) {
-        $old_index = json_decode($_COOKIE['old_submission_index'], true);
+$data = json_decode($_COOKIE['submissions'], true);
 
-        if ($old_index == null || $old_index == 9) {
-            $old_index = 0;
-        echo 333;
-        } else {
-            $old_index += 1;
+if($data[10] == null) {
+    $old_index = json_decode($_COOKIE['old_submission_index'], true);
 
-            setcookie('old_submission_index', json_encode($old_index), time()+3600);
-        }
+    if ($old_index == null || $old_index == 9) {
+        $old_index = 0;
 
-        $data[$old_index] = $new_values;
+  } else {
+        $old_index = $old_index + 1;
 
-        $values = $data;
-            $values = array_push($data, $new_values);
-    } else {
-        echo 12;
-        $values = array_push($data, $new_values);
-//        print_r($values);
-    }
+    setcookie('old_submission_index', json_encode($old_index), time()+3600);
+  }
 
-    setcookie('submissions', json_encode($values), time()+3600);
-    $data = json_decode($_COOKIE['submissions'], true);
+    $data[$old_index] = $new_values;
 
+  $values = $data;
+} else {
 
-//    var_dump($data);
+    $values = array_push($data, $new_values);
+}
+setcookie('submissions', json_encode($values), time()+3600);
+
+    var_dump($data);
     
     ?>
 
