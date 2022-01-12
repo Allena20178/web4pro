@@ -44,6 +44,7 @@
         <button type="submit" name='click' class="btn btn-primary">Send</button>
 
 
+
     </form>
     <?php
 
@@ -54,13 +55,14 @@
     );
 
     $data = json_decode($_COOKIE['submissions'], true);
-
-    if($data[10] == null) {
+        print_r($data);
+        if(count($data)<10){
+//    if($data[10] == null) {
         $old_index = json_decode($_COOKIE['old_submission_index'], true);
 
         if ($old_index == null || $old_index == 9) {
             $old_index = 0;
-
+        echo 333;
         } else {
             $old_index += 1;
 
@@ -70,16 +72,19 @@
         $data[$old_index] = $new_values;
 
         $values = $data;
+            $values = array_push($data, $new_values);
     } else {
-
+        echo 12;
         $values = array_push($data, $new_values);
+        print_r($values);
     }
 
     setcookie('submissions', json_encode($values), time()+3600);
     $data = json_decode($_COOKIE['submissions'], true);
 
-//    var_dump($data);
 
+    var_dump($data);
+    
     ?>
 
     <?php if($data): ?>
