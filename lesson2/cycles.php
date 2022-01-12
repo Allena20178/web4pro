@@ -9,16 +9,17 @@
 //
 
 //Задание 1
-//$i = 0;
-//while ($i < 100)
-//{
-//    $i++;
-//    if($i==13 or $i==99) continue;
-//    echo $i . PHP_EOL;
-//}
+$i = 0;
+while ($i < 100)
+{
+    $i++;
+    if($i==13 or $i==99) continue;
+    echo $i . PHP_EOL;
+}
 
 //Задание 2
 $main_array = [
+    ['title'=>'first', 'content'=>'first_cont', 'author'=>'author1'],
     ['title'=>'first', 'content'=>'first_cont', 'author'=>'author1'],
     ['title'=>'first', 'content'=>'first_cont', 'author'=>'author1'],
     ['title'=>'first', 'content'=>'first_cont', 'author'=>'author1'],
@@ -33,7 +34,7 @@ $counter = 0;
 if (!empty($_GET['page'])){
     $page = $_GET['page'];
     if ($page==2){
-
+        '';
     }
 }
 foreach ($main_array as $item){
