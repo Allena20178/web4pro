@@ -34,11 +34,11 @@ $counter = 0;
 if (!empty($_GET['page'])){
     $page = $_GET['page'];
     if ($page==2){
-        '';
+
     }
 }
 foreach ($main_array as $item){
-    if ($counter <= 4){
+    if ($counter <= 3){
         print_r($item);
     }
    $counter++;
