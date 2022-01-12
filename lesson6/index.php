@@ -80,6 +80,7 @@ setcookie('submissions', json_encode($values), time()+3600);
 //    var_dump($data);
     $array_keys = (array_keys($data));
     $i=0;
+    var_dump($data);
   foreach($data as $key=> $value){
          echo $array_keys[$i].'|, name ='.$data[$key]['name'].'|, email ='.$data[$key]['email'].'|, message ='.$data[$key]['message'];
          $i++;
