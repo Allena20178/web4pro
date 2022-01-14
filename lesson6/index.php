@@ -59,7 +59,7 @@ $data = json_decode($_COOKIE['submissions'], true);
 if($data[10] == null) {
     $old_index = json_decode($_COOKIE['old_submission_index'], true);
 
-    if ($old_index == null || $old_index == 9) {
+    if ($old_index) {
         $old_index = 0;
 
   } else {
@@ -77,7 +77,11 @@ if($data[10] == null) {
 }
 setcookie('submissions', json_encode($values), time()+3600);
     if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
-    var_dump($data);
+//    print_r($data);
+//    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
+//    print_r($data);
+    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
+    print_r($data);
     ?>
 
     <?php if($data): ?>
