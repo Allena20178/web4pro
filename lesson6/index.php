@@ -76,11 +76,7 @@ if($data[10] == null) {
     $values = array_push($data, $new_values);
 }
 setcookie('submissions', json_encode($values), time()+3600);
-    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
-//    print_r($data);
 //    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
-//    print_r($data);
-    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
     print_r($data);
     ?>
 
