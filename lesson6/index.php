@@ -49,8 +49,8 @@
     <?php
 
     $new_values = array(
-        'email' => $_POST["email"],
         'name' => $_POST["name"],
+        'email' => $_POST["email"],
         'message' => $_POST["message"]
     );
 
@@ -62,21 +62,24 @@ if($data[10] == null) {
     if ($old_index) {
         $old_index = 0;
 
-  } else {
+    } else {
         $old_index = $old_index + 1;
 
-    setcookie('old_submission_index', json_encode($old_index), time()+3600);
-  }
+        setcookie('old_submission_index', json_encode($old_index), time() + 3600);
+    }
 
     $data[$old_index] = $new_values;
 
-  $values = $data;
-} else {
-
-    $values = array_push($data, $new_values);
+    $values = $data;
 }
+//    var_dump($data);
+//} else {
+//
+//    $values = array_push($data, $new_values);
+//}
 setcookie('submissions', json_encode($values), time()+3600);
-//    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
+    if(isset($_COOKIE['submissions'])) $data[] = $_COOKIE['submissions'];
+
     print_r($data);
     ?>
 
